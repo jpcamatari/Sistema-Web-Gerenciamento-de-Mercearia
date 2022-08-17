@@ -33,7 +33,7 @@ class Funcionario():
         self.nome_fun = nome_fun
 
 class Vendas():
-    def __init__(self, funcionario: Funcionario(), cliente: Cliente(), produto: Produto(), quantidade, data =datetime.now):
+    def __init__(self, funcionario: Funcionario(), cliente: Cliente(), produto: Produto(), quantidade, data =datetime.now().strftime("%d/%m/%Y")):
 
         self.funcionario = funcionario
         self.cliente = cliente
