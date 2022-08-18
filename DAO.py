@@ -128,9 +128,10 @@ class DaoVendas:
             cls.vendas = arq.readlines()
         
         cls.vendas = list(map(lambda x: x.replace('\n', ''), cls.vendas))
+        cls.vendas = list(map(lambda x: x.split('|'), cls.vendas))
         ven = []
         for i in cls.vendas:
-            ven.append(Vendas(i))
+            ven.append(Vendas(Produto(i[0], i[1], i[2]), i[3], i[4], i[5], i[6]))
 
         return ven
 
