@@ -119,7 +119,7 @@ class DaoVendas:
     @classmethod
     def salvar(cls, vendas: Vendas):
         with open("Vendas,txt", 'a') as arq:
-            arq.writelines(vendas.produto.nome_produto + "|" + vendas.produto.preco + '|' + vendas.produto.categoria + '|' + vendas.funcionario.nome_fun + '|' + vendas.cliente.nome_cliente + '|' + str(vendas.quantidade) + '|' + vendas.data)
+            arq.writelines(vendas.produto.nome_produto + "|" + vendas.produto.preco + '|' + vendas.produto.categoria + '|' + vendas.produto.fornecedor + '|' + vendas.cliente.nome_cliente + '|' + str(vendas.quantidade) + '|' + vendas.data)
             arq.writelines('\n')
 
     @classmethod
@@ -133,3 +133,10 @@ class DaoVendas:
             ven.append(Vendas(i))
 
         return ven
+
+x = Produto("Maça", "Fruta", 'HF', '2')
+
+y = Vendas('pedro', 'Joaquim', x, '5')
+
+DaoVendas.salvar(y)
+DaoVendas.ler()
