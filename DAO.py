@@ -118,8 +118,10 @@ class DaoFuncionario:
 class DaoVendas:
     @classmethod
     def salvar(cls, vendas: Vendas):
-        with open("Vendas,txt", 'a') as arq:
-            arq.writelines(vendas.produto.nome_produto + "|" + vendas.produto.preco + '|' + vendas.produto.categoria + '|' + vendas.produto.fornecedor + '|' + vendas.cliente.nome_cliente + '|' + str(vendas.quantidade) + '|' + vendas.data)
+        with open("Vendas.txt", 'a') as arq:
+            arq.writelines(vendas.produto.nome_produto + "|" + vendas.produto.preco + '|' + vendas.produto.categoria +
+             '|' + vendas.produto.fornecedor + '|' + vendas.cliente.nome_cliente + '|' + str(vendas.quantidade) + 
+             '|' + vendas.data)
             arq.writelines('\n')
 
     @classmethod
