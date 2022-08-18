@@ -5,13 +5,13 @@ class Categoria():
         self.categoria = categoria
 
 class Fornecedor():
-    def __init__(self, empresa, categoria: Categoria):
+    def __init__(self, empresa, categoria):
         self.empresa = empresa
         self.categoria = categoria
 
 
 class Produto():
-    def __init__(self, nome_produto, categoria: Categoria, fornecedor: Fornecedor, preco):
+    def __init__(self, nome_produto, categoria, fornecedor, preco):
         self.nome_produto = nome_produto
         self.categoria = categoria
         self.fornecedor = fornecedor
@@ -33,7 +33,7 @@ class Funcionario():
         self.nome_fun = nome_fun
 
 class Vendas():
-    def __init__(self, funcionario: Funcionario, cliente: Cliente, produto: Produto, quantidade, data =datetime.now().strftime("%d/%m/%Y")):
+    def __init__(self, funcionario, cliente, produto: Produto, quantidade, data = datetime.now().strftime("%d/%m/%Y")):
 
         self.funcionario = funcionario
         self.cliente = cliente
