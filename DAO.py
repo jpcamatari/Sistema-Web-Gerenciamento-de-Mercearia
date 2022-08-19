@@ -119,9 +119,8 @@ class DaoVendas:
     @classmethod
     def salvar(cls, vendas: Vendas):
         with open("Vendas.txt", 'a') as arq:
-            arq.writelines(vendas.produto.nome_produto + "|" + vendas.produto.preco + '|' + vendas.produto.categoria +
-             '|' + vendas.produto.fornecedor + '|' + vendas.cliente + '|' + str(vendas.quantidade) + 
-             '|' + vendas.data)
+            arq.writelines(vendas.produto.nome + "|" + vendas.produto.preco + "|" + vendas.produto.categoria + "|" + vendas.funcionario + "|" + 
+            vendas.cliente + "|" + str(vendas.quantidadeVendida) + "|" + vendas.data)
             arq.writelines('\n')
 
     @classmethod
@@ -137,9 +136,9 @@ class DaoVendas:
 
         return ven
 
-x = Produto("Maça", "Fruta", 'HF', '2')
+x = Produto('Maça', '5', 'Fruta')
 
-y = Vendas('pedro', 'Joaquim', x, '5')
-
+y = Vendas(x, 'Carlos', 'Pedro', '2')
 DaoVendas.salvar(y)
+
 DaoVendas.ler()
