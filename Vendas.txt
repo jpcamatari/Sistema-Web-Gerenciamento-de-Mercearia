@@ -1,7 +1,7 @@
-Maça|5|Fruta|Carlos|Pedro|2|19/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|19/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|19/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|19/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|19/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|23/08/2022
-Maça|5|Fruta|Carlos|Pedro|2|23/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|19/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|19/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|19/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|19/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|19/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|23/08/2022
+Maï¿½a|5|Fruta|Carlos|Pedro|2|23/08/2022
