@@ -93,8 +93,52 @@ class ControllerEstoque:
 
         with open('Estoque.txt', 'w') as arq:
             for i in x:
-                arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(quantidade))
+                arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
                 arq.writelines('\n')
+   
+    def alterarProduto(self, nomeAlterar, novoNome, novoPreco, novaCategoria, novaQuantidade):
+        x = DaoEstoque.ler()
+        y = DaoCategoria.ler()
+        h = list(filter(lambda x: x.categoria == novaCategoria, y))
+
+        if len(h) > 0:
+            est = list(filter(lambda x: x.produto.nome == nomeAlterar, x))
+            if len(est) > 0:
+                est = list(filter(lambda x: x.produto.nome == novoNome, x))
+                if len(est) == 0:
+                    x = list(map(lambda x: Estoque(Produto(novoNome, novoPreco, novaCategoria), novaQuantidade) if(x.produto.nome == nomeAlterar) else(x), x))
+                    print('Produto alterado com sucesso')               
+                else:
+                    print('Produto ja cadastrado.')
+            else:
+                print('O produto que deseja alterar não existe.')
+
+            with open('Estoque.txt', 'w') as arq:
+                for i in x:
+                    arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
+                    arq.writelines('\n')
+                
+        else:
+            print('A categoria informada não existe')
+
+    def mostrarEstoque(self):
+        estoque = DaoEstoque.ler()
+        if len(estoque) == 0:
+            print('Estoque Vazio')
+        else:
+            for i in estoque:
+                print('*****Produto*****')
+                print(f"Nome: {i.produto.nome}\n"
+                      f"Preco: {i.produto.preco}\n"
+                      f"Categoria: {i.produto.categoria}\n"
+                      f"Quantidade: {i.quantidade}"
+
+                )
+                print("--------------------")
+
+
 
 a = ControllerEstoque()
+
+a.mostrarEstoque()
 
