@@ -155,7 +155,7 @@ class ControllerVenda:
 
                         DaoVendas.salvar(vendido)
 
-            temp.append([Produto(i.produto.nome, i.produto.categoria)])              
+            temp.append(Estoque(Produto(i.produto.nome, i.produto.preco, i.produto.categoria), i.quantidade))              
             arq = open('estoque.txt', 'w')
             arq.write("")
 
@@ -175,5 +175,5 @@ class ControllerVenda:
 
 a = ControllerVenda()
 
-a.cadastrarVenda('Batata', 'joao', 'caio', 2)
+a.cadastrarVenda('Batata', 'João', 'Caio', 2)
 
