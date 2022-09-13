@@ -1,2 +1,0 @@
-maça|1|Frutas|16
-Batata|10|Verduras|10
