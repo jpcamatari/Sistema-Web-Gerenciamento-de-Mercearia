@@ -150,7 +150,7 @@ class ControllerVenda:
                     if i.quantidade >= quantidadeVendida:
                         quantidade = True
                         i.quantidade = int(i.quantidade) - int(quantidadeVendida)
-                        vendido = Vendas(Produto(i.produto.nome, i.produto.categoria), vendedor, comprador, quantidadeVendida)
+                        vendido = Vendas(Produto(i.produto.nome, i.produto.preco, i.produto.categoria), vendedor, comprador, quantidadeVendida)
                         valorCompra = int(quantidadeVendida)*int(i.produto.preco)
 
                         DaoVendas.salvar(vendido)
@@ -161,7 +161,7 @@ class ControllerVenda:
 
             for i in temp:
                 with open('estoque.txt', 'a') as arq:
-                    arq.writelines(i[0].nome + '|' + i[0].preco) + '|' + i[0].categoria + '|' + str(i[i])
+                    arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
                     arq.writelines('\n')
 
             if existe == False:
@@ -175,5 +175,5 @@ class ControllerVenda:
 
 a = ControllerVenda()
 
-a.cadastrarVenda('Batata', 'João', 'Caio', 2)
+a.cadastrarVenda('banana', 'João', 'Caio', 2)
 
