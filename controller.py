@@ -126,8 +126,8 @@ class ControllerEstoque:
         if len(estoque) == 0:
             print('Estoque Vazio')
         else:
+            print('*****Produtos*****')
             for i in estoque:
-                print('*****Produto*****')
                 print(f"Nome: {i.produto.nome}\n"
                       f"Preco: {i.produto.preco}\n"
                       f"Categoria: {i.produto.categoria}\n"
@@ -136,9 +136,44 @@ class ControllerEstoque:
                 )
                 print("--------------------")
 
+class ControllerVenda:
+    def cadastrarVenda(self, nomeProduto, vendedor, comprador, quantidadeVendida):
+        x = DaoEstoque.ler()
+        temp = []
+        existe = False
+        quantidade = False
+
+        for i in x:
+            if existe == False:
+                if i.produto.nome == nomeProduto:
+                    existe = True
+                    if i.quantidade >= quantidadeVendida:
+                        quantidade = True
+                        i.quantidade = int(i.quantidade) - int(quantidadeVendida)
+                        vendido = Vendas(Produto(i.produto.nome, i.produto.categoria), vendedor, comprador, quantidadeVendida)
+                        valorCompra = int(quantidadeVendida)*int(i.produto.preco)
+
+                        DaoVendas.salvar(vendido)
+
+            temp.append([Produto(i.produto.nome, i.produto.categoria)])              
+            arq = open('estoque.txt', 'w')
+            arq.write("")
+
+            for i in temp:
+                with open('estoque.txt', 'a') as arq:
+                    arq.writelines(i[0].nome + '|' + i[0].preco) + '|' + i[0].categoria + '|' + str(i[i])
+                    arq.writelines('\n')
+
+            if existe == False:
+                print('O produto não existe')
+                return None
+            elif not quantidade:
+                print('A qauntidade vendida não contem em estoque')
+            else:
+                return valorCompra
 
 
-a = ControllerEstoque()
+a = ControllerVenda()
 
-a.mostrarEstoque()
+a.cadastrarVenda('Batata', 'joao', 'caio', 2)
 
