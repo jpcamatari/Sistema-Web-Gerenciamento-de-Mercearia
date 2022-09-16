@@ -1,3 +1,4 @@
+from tkinter import N
 from model import Categoria, Estoque, Produto, Fornecedor, Cliente, Funcionario, Vendas
 from DAO import DaoCategoria, DaoVendas, DaoEstoque, DaoFornecedor, DaoCliente, DaoFuncionario
 from datetime import datetime
@@ -172,8 +173,30 @@ class ControllerVenda:
             else:
                 return valorCompra
 
+    def relatorioProdutos(self):
+        vendas = DaoVendas.ler()
+        produtos = []
+        for i in vendas:
+            nome = i.itensVendidos.nome
+            quantidade = i.quantidadeVendida
+            tamanho = list(filter(lambda x: x['produto'] == nome, produtos))
+            if len(tamanho)>0:
+                produtos = list(map(lambda x: {'Produto': nome, 'quantidade': int(x['quantidade']) + int(quantidade)}
+                 if (x['produto'] == nome) else(x), produtos))
+            else:
+                produtos.append({'Produto': nome, 'quantidade': int(quantidade)})
+
+            ordenado = sorted(produtos, key=lambda k: k['quantidade'], reverse=True)
+
+            print('Esses são os produtos mais vendidos:')
+            a = 1
+            for i in ordenado:
+                print(f"======Produto [{a}]======")
+                print(f"Produto: {i['produtos']}\n"
+                f"Quantidade: {i['quantidade']}\n")
+                   
+                a += 1
 
 a = ControllerVenda()
-
-a.cadastrarVenda('banana', 'João', 'Caio', 2)
+a.cadastrarVenda('maca', 'caio', 'pedro', '5')
 
