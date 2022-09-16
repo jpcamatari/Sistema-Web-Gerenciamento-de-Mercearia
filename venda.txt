@@ -1,0 +1,5 @@
+banana|2|Frutas|João|Caio|2|13/09/2022
+maca|2|Frutas|caio|pedro|5|15/09/2022
+maca|2|Frutas|caio|pedro|5|15/09/2022
+maca|2|Frutas|caio|pedro|5|15/09/2022
+maca|2|Frutas|caio|pedro|5|15/09/2022

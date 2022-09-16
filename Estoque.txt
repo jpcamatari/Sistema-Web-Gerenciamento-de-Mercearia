@@ -1,1 +1,2 @@
 banana|2|Frutas|18
+maca|2|Frutas|30
